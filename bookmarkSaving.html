@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./bookmark.css" />
+    <style>
+      h2 {
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+      }
+      .container {
+        height: 300px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+      }
+      .button {
+        width: 250px;
+        height: 30px;
+        background-color: #000;
+        color: antiquewhite;
+        border-radius: 5px;
+        font-weight: 600;
+      }
+      .unorderedList {
+        padding: "10px 0px";
+      }
+    </style>
+  </head>
+  <body style="width: 600px">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between">
+        <h2>Bookmarks Saved</h2>
+      </div>
+
+      <div id="bookmarkButtonContainer">
+        <div class="header">
+          <!-- three dot menu -->
+          <div class="dropdown">
+            <!-- three dots -->
+            <ul class="dropbtn icons btn-right showLeft" id="threeDots">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+            <!-- menu -->
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#home">AccountSettings</a>
+              <a href="#about">SignOut</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul id="unorderedList" class="unorderedList"></ul>
+
+      <button class="clearbutton" id="clearButton">Clear</button>
+    </div>
+
+    <script src="bookmark.js" type="module"></script>
+  </body>
+</html>
