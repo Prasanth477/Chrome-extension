@@ -15,14 +15,15 @@
     "activeTab",
     "bookmarks",
     "storage",
-    "contextMenus"
+    "contextMenus",
+    "notifications"
   ],
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
   "action": {
-    "default_popup": "bookmarkSaving.html"
+    "default_popup": "beforeSignin/popup.html"
   },
   "content_scripts": [
     {

@@ -6,4 +6,5 @@ export function clear() {
       console.error(error);
     }
   });
+  window.close();
 }

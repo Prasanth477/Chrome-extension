@@ -33,3 +33,17 @@ chrome.runtime.onInstalled.addListener(function () {
     id: "child2",
   });
 });
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  console.log(
+    sender.tab
+      ? "from a content script:" + sender.tab.url
+      : "from the extension"
+  );
+  if (request.greeting === "hello") {
+    chrome.action.setPopup({
+      popup: "afterSignin/bookmark.html",
+    });
+  }
+  sendResponse({ farewell: "goodbye" });
+});
