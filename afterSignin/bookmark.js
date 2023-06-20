@@ -80,13 +80,6 @@ window.onclick = function (event) {
 
 let signoutButton = document.getElementById("signOut");
 signoutButton.addEventListener("click", () => {
-  chrome.notifications.create("test", {
-    type: "basic",
-    iconUrl: "../images/icon (3).png",
-    title: "Test Message out",
-    message: "You have signedout",
-    priority: 2,
-  });
   chrome.storage.local.remove("logged_in", function () {
     var error = chrome.runtime.lastError;
     if (error) {
@@ -98,14 +91,3 @@ signoutButton.addEventListener("click", () => {
   });
   // window.close();
 });
-
-//messaging    // to do
-// (async () => {
-//   const [tab] = await chrome.tabs.query({
-//     active: true,
-//     lastFocusedWindow: true,
-//   });
-//   const response = await chrome.tabs.sendMessage(tab.id, { greeting: "hello" });
-//   // do something with response here, not outside the function
-//   console.log(response);
-// })();

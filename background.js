@@ -34,6 +34,7 @@ chrome.runtime.onInstalled.addListener(function () {
   });
 });
 
+//message listener from content script
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   console.log(
     sender.tab
