@@ -34,17 +34,48 @@ chrome.runtime.onInstalled.addListener(function () {
   });
 });
 
-//message listener from content script
+// //message listener from content script
+// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+//   console.log(
+//     sender.tab
+//       ? "from a content script:" + sender.tab.url
+//       : "from the extension"
+//   );
+//   if (request.greeting === "hello") {
+//     chrome.action.setPopup({
+//       popup: "afterSignin/bookmark.html",
+//     });
+//   }
+//   sendResponse({ farewell: "goodbye" });
+// });
+
+// chrome.storage.local.get(["logged_in"]).then((result) => {
+//   if (result.logged_in) {
+//     chrome.action.setPopup({
+//       popup: "afterSignin/bookmark.html",
+//     });
+//     console.log("crct");
+//   } else {
+//     console.log("error");
+//   }
+//   console.log("loggedinState", result.logged_in);
+//   // console.log("Value currently is " + result.logged_in);
+// });
+
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log(
-    sender.tab
-      ? "from a content script:" + sender.tab.url
-      : "from the extension"
-  );
-  if (request.greeting === "hello") {
+  if (request.localstorage == "username") {
+    sendResponse({
+      username: JSON.parse(localStorage.getItem("users"))[0].username,
+    });
     chrome.action.setPopup({
       popup: "afterSignin/bookmark.html",
     });
-  }
-  sendResponse({ farewell: "goodbye" });
+  } else if (request.localstorage == "password") {
+    sendResponse({
+      password: JSON.parse(localStorage.getItem("users"))[0].password,
+    });
+    chrome.action.setPopup({
+      popup: "afterSignin/bookmark.html",
+    });
+  } else sendResponse({});
 });

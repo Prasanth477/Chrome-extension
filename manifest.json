@@ -9,15 +9,7 @@
     "128": "images/App icon.png"
   },
   "manifest_version": 3,
-  "permissions": [
-    "scripting",
-    "tabs",
-    "activeTab",
-    "bookmarks",
-    "storage",
-    "contextMenus",
-    "notifications"
-  ],
+  "permissions": ["tabs", "bookmarks", "storage", "contextMenus"],
   "background": {
     "service_worker": "background.js",
     "type": "module"
